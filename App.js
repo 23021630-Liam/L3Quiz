@@ -1,6 +1,36 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, ScrollView, Image, Alert } from 'react-native';
+import { View, Text, TextInput, Button, ScrollView, Image, Alert, StyleSheet } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
+
+const styles = StyleSheet.create({
+    parent: {
+        flex:1,
+        backgroundColor: 'whitesmoke',
+        marginTop: 30,
+
+        // alignItems: 'center',
+        // textAlign: 'center',
+        // textAlignVertical: 'center',
+        // textAlignHorizontal: 'center',
+        // justifyContent: 'center',
+        // justifyContent: 'space-around',
+    },
+    child: {
+        flex:1,
+        // width: 80,
+        // height: 80,
+        textAlign: 'center',
+        backgroundColor: 'black',
+        fontWeight: 'bold',
+        fontSize: 30,
+        fontStyle: 'italic',
+        borderWidth: 3,
+        borderStyle: 'dotted',
+        borderCurve: "circular",
+        borderColor: 'skyblue',
+    },
+});
+
 
 const InputBox = ({ label, onChangeText }) => {
     return (
@@ -33,49 +63,54 @@ const QuizApp = () => {
     };
 
     return (
+        <View style={[styles.parent]}>
         <View>
             <ScrollView>
                 <Text></Text>
                 <InputBox label="User Name:" onChangeText={(text) => setName(text)} />
                 <Text></Text>
 
-                <Text>What animal is this?</Text>
+                <Text style={[styles.child, {color: 'lightblue'}]}>
+                    What animal is this?</Text>
                 <Image source={require('./img/hummingbird.jpg')} style={{ width: 425, height: 400 }} />
                 <RNPickerSelect
                     onValueChange={(value) => setQ1(value)}
                     items={[
-                        { label: 'Hummingbird', value: 'Hummingbird' },
-                        { label: 'Pigeon', value: 'Pigeon' },
-                        { label: 'Kingfisher', value: 'Kingfisher' }
+                        { label: 'Hummingbird', value: 'Hummingbird', color:"lightblue"},
+                        { label: 'Pigeon', value: 'Pigeon', color:"red"},
+                        { label: 'Kingfisher', value: 'Kingfisher', color:"brown"}
                     ]}
                 />
 
                 <Text></Text>
-                <Text>What animal is this?</Text>
+                <Text style={[styles.child, {color: 'magenta', fontWeight: 'bold', fontSize: 30}]}>
+                    What animal is this?</Text>
                 <Image source={require('./img/penguin.jpg')} style={{ width: 425, height: 400 }} />
                 <RNPickerSelect
                     onValueChange={(value) => setQ2(value)}
                     items={[
-                        { label: 'Peacock', value: 'Peacock' },
-                        { label: 'Squirrel', value: 'Squirrel' },
-                        { label: 'Penguin', value: 'Penguin' }
+                        { label: 'Peacock', value: 'Peacock', color:"orange" },
+                        { label: 'Squirrel', value: 'Squirrel', color:"magenta" },
+                        { label: 'Penguin', value: 'Penguin', color:"purple" }
                     ]}
                 />
 
                 <Text></Text>
-                <Text>What animal is this?</Text>
+                <Text style={[styles.child, {color: 'turquoise', fontWeight: 'bold', fontSize: 30}]}>
+                    What animal is this?</Text>
                 <Image source={require('./img/rabbit.jpg')} style={{ width: 425, height: 400 }} />
                 <RNPickerSelect
                     onValueChange={(value) => setQ3(value)}
                     items={[
-                        { label: 'Turtle', value: 'Turtle' },
-                        { label: 'Rabbit', value: 'Rabbit' },
-                        { label: 'Owl', value: 'Owl' }
+                        { label: 'Turtle', value: 'Turtle', color:"blue" },
+                        { label: 'Rabbit', color:"turquoise", value: 'Rabbit' },
+                        { label: 'Owl', value: 'Owl', color:"green" }
                     ]}
                 />
 
-                <Button title="Submit Answers" color="green" onPress={handleSubmit} />
+                <Button title="Submit Answers" color="blue" onPress={handleSubmit} />
             </ScrollView>
+        </View>
         </View>
     );
 };
