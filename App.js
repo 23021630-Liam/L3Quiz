@@ -83,7 +83,7 @@ const QuizApp = () => {
                 />
 
                 <Text></Text>
-                <Text style={[styles.child, {color: 'magenta', fontWeight: 'bold', fontSize: 30}]}>
+                <Text style={[styles.child, {color: 'magenta'}]}>
                     What animal is this?</Text>
                 <Image source={require('./img/penguin.jpg')} style={{ width: 425, height: 400 }} />
                 <RNPickerSelect
@@ -96,7 +96,7 @@ const QuizApp = () => {
                 />
 
                 <Text></Text>
-                <Text style={[styles.child, {color: 'turquoise', fontWeight: 'bold', fontSize: 30}]}>
+                <Text style={[styles.child, {color: 'turquoise'}]}>
                     What animal is this?</Text>
                 <Image source={require('./img/rabbit.jpg')} style={{ width: 425, height: 400 }} />
                 <RNPickerSelect
